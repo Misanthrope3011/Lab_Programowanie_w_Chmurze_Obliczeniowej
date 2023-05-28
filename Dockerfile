@@ -3,7 +3,6 @@ FROM eclipse-temurin:17-jre-alpine AS builder
 LABEL maintainer="Sebastian Dyjach"
 ARG USER_NAME=fullstejk
 ARG USER_WORKDIR=/homedir
-ENV DOCKER_BUILDKIT=1
 
 RUN apk add curl
 
