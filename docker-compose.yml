@@ -1,0 +1,33 @@
+version: '2.2'
+
+services:
+  fullstejk:
+    build: .
+    user: ${UID}:${GID}
+    image:  fullstejk-application:latest
+    container_name: fullstejk-application
+    restart: on-failure:3
+    mem_limit: 1600m
+    cpus: 0.75
+    read_only: true
+    tmpfs:
+      - /tmp
+    ports:
+      - 8085:8085
+    networks:
+      - fullstejk_network
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl --fail http://localhost:8085/ || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+networks:
+  fullstejk_network:
+    name: fullstejk_network
+
