@@ -5,8 +5,8 @@ ARG USER_NAME=fullstejk
 ARG USER_WORKDIR=/homedir
 
 RUN apk add curl
-
 COPY build/libs/fullstejk-0.0.1-SNAPSHOT.jar .
+
 RUN  --mount=type=cache,target=/var/cache/apt
 RUN addgroup -S ${USER_NAME} \
     && adduser -S ${USER_NAME} -s /bin/false -G ${USER_NAME} \
