@@ -36,12 +36,12 @@ public class GeoLocationService {
                 .block();
     }
 
-    public String handleResponse(GeoInfo geoInfo) {
+    public String handleResponse(GeoInfo geoInfo, String userIp) {
         String LOCAL_IP = "172.18.0.1";
         if(geoInfo.getTimezone() == null && geoInfo.getIp().equals(LOCAL_IP)) {
-            return "This is localhost and its timezone is Europe/Warsaw";
+            return String.format("This is %s and its timezone is Europe/Warsaw", userIp);
         } else if (geoInfo.getTimezone() == null) {
-            return "Unknown timezone for given address";
+            return String.format("Unknown timezone for %s address", userIp);
         } else {
             return String.format("For %s ip address timezone is %s", geoInfo.getIp(), geoInfo.getTimezone());
         }

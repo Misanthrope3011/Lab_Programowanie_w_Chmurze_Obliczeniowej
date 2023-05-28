@@ -18,7 +18,7 @@ public class AppController {
     @GetMapping("/")
     public ResponseEntity<Object> respond(HttpServletRequest httpServletRequest) {
         String userIp = httpServletRequest.getRemoteAddr();
-        return ResponseEntity.ok(geoLocationService.handleResponse(geoLocationService.APIInfo(userIp)));
+        return ResponseEntity.ok(geoLocationService.handleResponse(geoLocationService.APIInfo(userIp), userIp));
     }
 
 }
