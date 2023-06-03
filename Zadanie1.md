@@ -1,5 +1,6 @@
 Build application:
 gradle clean build
+
 Build image:
 DOCKER_BUILDKIT=1 docker-build .
 Application build with docker-compose:
