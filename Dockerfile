@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jre-alpine AS builder
+FROM amazoncorretto:17-alpine3.16 AS builder
 
 LABEL maintainer="Sebastian Dyjach"
 ARG USER_NAME=fullstejk
