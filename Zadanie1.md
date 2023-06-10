@@ -2,7 +2,7 @@ Build application:
 gradle clean build
 
 Build image:
-DOCKER_BUILDKIT=1 docker-build .
+DOCKER_BUILDKIT=1 docker build .
 Application build with docker-compose:
 USR_UID="$(id -u)" USR_GID="$(id -g)" docker-compose up
 
