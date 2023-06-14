@@ -1,34 +1,25 @@
+Ten proces składa się z 8 kroków, które należy wykonać, aby pomyślnie zbudować i opublikować obraz Dockera dla wielu architektur. Poniższe sekcje opisują każdy krok szczegółowo.
 
-This pipeline consists of 8 steps that need to be followed in order to successfully build and publish a multiarchitecture Docker image. The following sections describe each step in detail.
+Krok 1: Checkout code
+Ten krok pozwala na pobranie kodu z repozytorium w celu wykonywania operacji na nim w łancuchu github actions.
 
-## Step 1: Checkout code
+Krok 2: Konfiguracja Buildx
+Przed przystąpieniem do wieloarchitekturalnej kompilacji musisz skonfigurować Buildx. Buildx to narzędzie umożliwiające wieloarchitekturalne budowanie przy użyciu QEMU. Ten krok zapewnia, że Buildx jest poprawnie zainstalowany i skonfigurowany.
 
-This step allows you to checkout the code from the repository that you will be working with in the pipeline. It is important to have the code locally in order to perform the necessary operations.
+Krok 3: Konfiguracja QEMU dla Dockera
+QEMU to narzędzie niezbędne do budowania obrazów dla różnych platform. Ten krok instaluje QEMU, który jest niezbędny do budowy wieloarchitekturalnego obrazu Dockera.
 
-## Step 2: Buildx set-up
+Krok 4: Konfiguracja Gradle
+Ten projekt jest budowany za pomocą narzędzia Gradle, dlatego ważne jest skonfigurowanie Gradle jako część procesu. Ten krok zapewnia, że Gradle jest zainstalowany i gotowy do użycia w procesie kompilacji.
 
-Before you can proceed with the multiarchitecture build, you need to set up Buildx. Buildx is a tool that enables multiarchitecture builds using QEMU. This step ensures that Buildx is properly installed and configured.
+Krok 5: Uruchomienie procesu budowania za pomocą Gradle Wrapper
+Proces budowania tego projektu jest wykonywany za pomocą Gradle Wrapper. Ten krok uruchamia polecenie budowania przy użyciu Gradle Wrapper, które skompiluje kod i wygeneruje niezbędne artefakty.
 
-## Step 3: Docker Setup QEMU
+Krok 6: Logowanie do DockerHub
+Aby opublikować zbudowany obraz, musisz zalogować się do DockerHub. Ten krok wymaga podania niezbędnych danych uwierzytelniających i upewnia się, że jesteś uwierzytelniony, aby przesłać obraz do zdalnego repozytorium.
 
-QEMU is a tool that is required for multiplatform builds. This step installs QEMU, which is necessary for building a multiarchitecture Docker image.
+Krok 7: Budowanie i przesyłanie
+Ten krok buduje obraz Dockera przy użyciu artefaktów wygenerowanych w poprzednich krokach. Następnie zbudowany obraz jest przesyłany do zdalnego repozytorium określonego w konfiguracji procesu. Obraz zbudowany w tym kroku ma tag 'multiplatform'.
 
-## Step 4: Setup Gradle
-
-This project is built using Gradle, so it is important to set up Gradle as part of the pipeline. This step ensures that Gradle is installed and ready to use for the build process.
-
-## Step 5: Run build with Gradle Wrapper
-
-The build process for this project is executed using the Gradle Wrapper. This step runs the build command using the Gradle Wrapper, which will compile the code and generate the necessary artifacts.
-
-## Step 6: Login to DockerHub
-
-To publish the built image, you need to log in to DockerHub. This step prompts for the necessary credentials and ensures that you are authenticated to push the image to the remote repository.
-
-## Step 7: Build and push
-
-This step builds the Docker image using the artifacts generated in the previous steps. The built image is then pushed to the remote repository specified in the pipeline configuration. Image built in this step has tag 'multiplatform'
-
-## Conclusion
-
-By following these 8 steps, you can successfully build and publish a multiarchitecture Docker image for this project.
+Podsumowanie
+Postępując zgodnie z tymi 8 krokami, możesz pomyślnie zbudować i opublikować wieloarchitekturalny obraz Dockera dla tego projektu.
