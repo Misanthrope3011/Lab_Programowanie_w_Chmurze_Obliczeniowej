@@ -32,7 +32,3 @@ Ten krok buduje obraz Dockera przy użyciu artefaktów wygenerowanych w poprzedn
 
 W wyniku operacji obraz uruchamia sie prawidłowo:
 ![Screenshot from 2023-06-14 07-29-50](https://github.com/Misanthrope3011/fullstejk/assets/57143557/5dd6b2a3-a624-475b-a849-f5c5fa2cafb1)
-
-## Podsumowanie
-
-Postępując zgodnie z tymi 8 krokami, możesz pomyślnie zbudować i opublikować wieloarchitekturalny obraz Dockera dla tego projektu.
