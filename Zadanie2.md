@@ -2,7 +2,7 @@
 
 Ten proces składa się z 8 kroków, które należy wykonać, aby pomyślnie zbudować i opublikować obraz Dockera dla wielu architektur. Poniższe sekcje opisują każdy krok szczegółowo.
 
-## Krok 1: Pobierz kod
+## Krok 1: Checkout code
 
 Ten krok pozwala na pobranie kodu z repozytorium na którym będzie pracował łancuch github actions.
 
@@ -16,11 +16,11 @@ QEMU to narzędzie niezbędne do budowania obrazów dla różnych platform. Ten 
 
 ## Krok 4: Konfiguracja Gradle
 
-Ten projekt jest budowany za pomocą narzędzia Gradle, dlatego ważne jest skonfigurowanie Gradle jako część procesu. Ten krok zapewnia, że Gradle jest zainstalowany i gotowy do użycia w procesie kompilacji.
+Ten projekt jest budowany za pomocą narzędzia Gradle, dlatego ważne jest skonfigurowanie Gradle jako część procesu. Ten krok zapewnia, że Gradle jest zainstalowany i gotowy do użycia w procesie kompilacji. W celu odpowiedniego uruchomienia aplikacji, 
 
 ## Krok 5: Uruchomienie procesu budowania za pomocą Gradle Wrapper
 
-Proces budowania tego projektu jest wykonywany za pomocą Gradle Wrapper. Ten krok uruchamia polecenie budowania przy użyciu Gradle Wrapper, które skompiluje kod i wygeneruje niezbędne artefakty.
+Proces budowania tego projektu jest wykonywany za pomocą Gradle Wrapper. Ten krok uruchamia polecenie budowania przy użyciu Gradle Wrapper, które skompiluje kod i wygeneruje niezbędne artefakty. Wrapper użyty w łańcuchu jest w wersji 8.1.1 i jest kompatybilny do Javy wersji 19.
 
 ## Krok 6: Logowanie do DockerHub
 
